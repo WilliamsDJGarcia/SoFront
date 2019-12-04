@@ -1,5 +1,6 @@
 <template>
   <v-app id="inspire">
+    <div class="login-container">
       <v-content class="justify-center">
         <v-container class="fill-height" fluid>
           <v-card class="elevation-12">
@@ -21,6 +22,7 @@
           </v-card>
         </v-container>
       </v-content>
+    </div>
   </v-app>
 </template>
 
@@ -56,3 +58,15 @@ export default {
   }
 };
 </script>
+<style scoped>
+.login-container {
+  align-items: center;
+  margin: auto;
+  position: relative;
+  display: block;
+  justify-content: center;
+  flex-direction: row;
+  align-content: center;
+  max-width: 100%;
+}
+</style>

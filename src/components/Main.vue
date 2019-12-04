@@ -51,8 +51,9 @@
                   v-model="editedItem.id_Carrera"
                   :items="selected"
                   label="Carrera"
+                  :placeholder="carer"
                   item-text="name"
-                  item-value="id"
+                  item-value="id"  
                 ></v-select>
               </v-form>
             </v-container>
@@ -131,6 +132,8 @@ export default {
     ],
     alumnos: [],
     editedIndex: -1,
+    carer:'',
+    idC:'',
     editedItem: {
       name: "",
       lastName: "",
@@ -210,7 +213,7 @@ export default {
         age: this.editedItem.age,
         genere: this.editedItem.genere,
         address: this.editedItem.address,
-        id_Carrera: this.editedItem.id_Carrera
+        id_Carrera: this.editedItem.id_Carrera || this.idC
       };
       console.log(this.id);
       console.log(a);
@@ -257,6 +260,10 @@ export default {
     },
     editItem(item) {
       this.id = item.id;
+      this.carer = item.carrera;
+      this.idC = item.idC
+      console.log(this.carer);
+      console.log(this.idC);
       console.log(this.id);
       this.editedIndex = this.alumnos.indexOf(item.id);
       this.editedItem = Object.assign({}, item);
