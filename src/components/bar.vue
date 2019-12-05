@@ -1,7 +1,13 @@
 <template>
   <v-card>
     <v-toolbar flat color="primary" dark>
-      <v-toolbar-title>! Bienvenido !</v-toolbar-title>
+      <v-toolbar-title>Bienvenido</v-toolbar-title>
+      <v-spacer></v-spacer>
+
+      <v-toolbar-items>
+        <v-icon class="mr-2" @click="close">home</v-icon>
+      </v-toolbar-items>
+
     </v-toolbar>
     <v-tabs vertical>
       <v-tab>
@@ -35,6 +41,12 @@ export default {
   components: {
     us: Us,
     cl: Cl
+  },
+  methods:{
+    close(){
+      localStorage.removeItem('token');
+      this.$router.push("/");
+    }
   }
 };
 </script>

@@ -13,19 +13,29 @@ const router = new Router({
 		{
 			path: "/",
 			name: "start",
-			component: lg
+			component: lg,
 		},
 		{
 			path: "/home",
 			name: "home",
-			component: hw
+			component: hw,
+			beforeEnter: (to, from, next) => {
+				if (localStorage.getItem("token") == null) {
+					next("/");
+				} else {
+					next();
+				}
+			}
 		}
-		//   {
-		//     path: '/carrera',
-		//     name: 'carrera',
-		//     component: ca,
-		//   },
 	]
 });
+
+// router.beforeEach((to, from, next) => {
+//     if (from.path!= '/' && localStorage.getItem("token") != isNull) {
+//         next();
+//     } else {
+//         next('/');
+//     }
+// });
 
 export default router;
